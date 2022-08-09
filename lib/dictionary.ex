@@ -10,14 +10,13 @@ defmodule Dictionary do
 
       iex> Dictionary.hello()
       :world
-
+g
   """
-  def word_list do
-  "assests/words.txt" |> File.read!() |> String.split(~r/\n/, trim: true)
-    # words = File.read!("assests/words.txt")
-    # String.split(words, ~r/\n/, trim: true)
-  end
+
+  @word_list "assests/words.txt"  |> File.read!() |> String.split(~r/\n/, trim: true)
+
   def random_word do
-  Enum.random(word_list())
+  @word_list |>
+  Enum.random()
   end
 end
