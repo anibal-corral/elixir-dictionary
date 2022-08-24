@@ -1,22 +1,20 @@
 defmodule Dictionary do
-  @moduledoc """
-  Documentation for `Dictionary`.
-  """
+  # API
+  @opaque t :: Dictionary.Impl.WordList.t()
 
-  @doc """
-  Hello world.
+@spec start() :: t
+defdelegate start, to:  Dictionary.Impl.WordList, as: :word_list
+defdelegate random_word(word_list), to: Dictionary.Impl.WordList
 
-  ## Examples
+  # def start() do
+  # random_word(word_list)
+  # end
 
-      iex> Dictionary.hello()
-      :world
-g
-  """
 
-  @word_list "assests/words.txt"  |> File.read!() |> String.split(~r/\n/, trim: true)
 
-  def random_word do
-  @word_list |>
-  Enum.random()
-  end
+  # @spec random_word(any) :: any
+  # def random_word(word_list) do
+  #   word_list |>
+  #   Enum.random()
+  #  end
 end
