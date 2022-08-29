@@ -2,8 +2,9 @@ defmodule Dictionary.Runtime.Server do
 @type t :: pid()
 
 @me __MODULE__
+use Agent
 
-  def start_link do
+  def start_link(_) do
     Agent.start_link(&Dictionary.Impl.WordList.word_list/0, name: @me)
   end
 

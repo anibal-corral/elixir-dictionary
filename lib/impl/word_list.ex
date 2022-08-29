@@ -1,10 +1,10 @@
 defmodule Dictionary.Impl.WordList do
-  @type t :: list(String)
+  @type t :: list(String.t)
 
 
   # IMPL
   # @word_list "assests/words.txt"  |> File.read!() |> String.split(~r/\n/, trim: true)
-  @spec word_list() :: t
+  @spec word_list :: t
   def word_list do
     "assests/words.txt"  |> File.read!() |> String.split(~r/\n/, trim: true)
   end
